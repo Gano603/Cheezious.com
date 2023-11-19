@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import CardList from './components/CardList'
-import Hero from 'src/components/Hero'
 import Description from './components/Description'
+import Hero from './components/Hero'
 
 const Home = () => {
 
