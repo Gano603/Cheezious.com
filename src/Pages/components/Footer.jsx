@@ -8,7 +8,7 @@ import { FaLocationDot } from "react-icons/fa6";
 const Footer = () => {
     return (
         <div className='mx-[5vw] px-16 py-12 w-[90vw] border-[1px] mt-32 rounded-3xl border-gray-200 flex bg-white'>
-            <div><img className='h-[11.2rem] w-[12rem] rounded-sm' src="src\assets\img\1649325481.webp" /></div>
+            <div><img className='h-[11.2rem] w-[12rem] rounded-sm' src="/assets/img/1649325481.webp" /></div>
             <div className='flex w-full'>
                 <div className='w-3/5 px-6'>
                     <h6 className='font-semibold'>Cheezious</h6>

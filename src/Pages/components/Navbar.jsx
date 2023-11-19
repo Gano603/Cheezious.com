@@ -12,7 +12,7 @@ const Navbar = ({ location }) => {
       <div className='mx-4 md-lg:mx-28 flex w-full'>
         <div className='w-full flex md-lg:flex-row-reverse'>
         <div className='flex justify-center w-max md-lg:w-full'>
-          <img src="src/assets/img/1649325481.webp" alt="Cheezious Logo" 
+          <img src="/assets/img/1649325481.webp" alt="Cheezious Logo" 
           className='h-20 w-20' />
         </div>
         <div className='flex items-center'>
