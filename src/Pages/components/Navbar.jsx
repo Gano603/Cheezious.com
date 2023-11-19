@@ -8,7 +8,7 @@ import { CgProfile } from "react-icons/cg";
 
 const Navbar = ({ location }) => {
   return (
-    <div className='h-20 bg-yellow-400 flex items-center shadow-lg w-full fixed left-0 top-0 z-20'>
+    <div className='h-20 bg-yellow-400 flex items-center shadow-lg w-[100vw] fixed left-0 top-0 z-20'>
       <div className='mx-4 md-lg:mx-28 flex w-full'>
         <div className='w-full flex md-lg:flex-row-reverse'>
         <div className='flex justify-center w-max md-lg:w-full'>
