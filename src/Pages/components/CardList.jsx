@@ -73,8 +73,8 @@ const CardList = () => {
             ["src/assets/img/side/side3.webp", "Chicken Piece", "Crispy Chicken", "270.00"],
         ],
         "Addons": [
-            ["src/assets/img/addons/add1.webp", "Juice", "", "50.00"],
-            ["src/assets/img/addons/add2.webp", "Mayo Dip", "", "70.00"],
+            ["/assets/img/addons/add1.webp", "Juice", "", "50.00"],
+            ["../../assets/img/addons/add2.webp", "Mayo Dip", "", "70.00"],
             ["src/assets/img/addons/add3.webp", "Drink", "", "90.00"],
             ["src/assets/img/addons/add4.webp", "Water Small", "", "50.00"],
         ]
