@@ -22,7 +22,7 @@
 .prominent-hr {
     border: none;
     height: 1px;
-    background: linear-gradient(to right, rgba(0, 0, 0, 0.05), #dbdbdb, rgba(0, 0, 0, 0.05));
+    background: linear-gradient(to right, rgba(172, 172, 172, 0.05), #dbdbdb, rgba(172, 172, 172, 0.05));
   }
 
 html::-webkit-scrollbar{

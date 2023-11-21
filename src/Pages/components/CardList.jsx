@@ -1,17 +1,17 @@
 import React from 'react'
 import Card from './Card'
 
-const CardList = () => {
+const CardList = ({cart , setcart}) => {
     const card_list = {
         "I'm Back!": [
             ["/assets/img/1629619743.webp", "Fettucine Alfredo Pasta", "Pasta Made In Yummiest White Sauce With Chicken Chunks Topped With Cheese", "990.00"]
         ],
         "Starters": [
+            ["/assets/img/starter/start1.webp", "Cheezy Sticks", "Freshly Baked Bread Filled With The Yummiest Cheese Blend To Satisfy Your Cravings.", "590.00"],
             ["/assets/img/starter/start2.webp", "Oven Baked Wings", "Fresh Oven Baked Wings Served With Dip Sauce", "550.00"],
             ["/assets/img/starter/start3.webp", "Flaming Wings", "Fresh Oven Baked Wings Tossed In Hot Peri Peri Sauce And Served With Dip Sauce", "600.00"],
             ["/assets/img/starter/start4.webp", "Calzone Chunks", "4 Pcs Stuffed Calzone Chunks Served with Sauce & Fries", "1,050.00"],
             ["/assets/img/starter/start5.webp", "Arabic Rolls", "4 Pcs Arabic Rolls Stuffed with Yummiest Mix Served with Sauce", "650.00"],
-            ["/assets/img/starter/start1.webp", "Cheezy Sticks", "Freshly Baked Bread Filled With The Yummiest Cheese Blend To Satisfy Your Cravings.", "590.00"],
             ["/assets/img/starter/start6.webp", "Behari Rolls", "4 Pcs Behari Rolls Stuffed with Yummiest Mix Served with Sauce", "650.00"]
         ],
         "Somewhat Local": [
@@ -79,20 +79,21 @@ const CardList = () => {
             ["/assets/img/addons/add4.webp", "Water Small", "", "50.00"],
         ]
     };
-    
+
     return (
         Object.keys(card_list).map((title, iter1) => {
             const data = card_list[title];
             return (
-                <div key={iter1} className={`h-max w-[90vw] mx-[5vw]`}>
-                    <h2 className='text-black text-2xl my-4 font-bold'>{title}</h2>
+                <div key={iter1} className={`h-max md-lg:w-[90vw] w-[96vw] mx-[2vw] md-lg:mx-[5vw]`}>
+                    <h2 className='text-black text-2xl my-1 mt-6 mx-6 font-bold'>{title}</h2>
                     <div className='grid grid-cols-12'>
-                    {data.map((index2, iter) => (
-                        <div key={iter} className='my-6 col-span-3 mx-6 2xl:mx-4 2xl:col-span-2'>
-                            <Card card_title={index2[1]} card_description={index2[2]} price={index2[3]} imgSrc={index2[0]} />
-                        </div>
-                    ))}
+                        {data.map((index2, iter) => (
+                            <div key={iter} className='my-6 mx-3 col-span-6 sm:col-span-4 xl:col-span-3 md-lg:mx-6 2xl:mx-4 2xl:col-span-2'>
+                                <Card cart={cart} card_title={index2[1]} card_description={index2[2]} price={index2[3]} imgSrc={index2[0]} setcart={setcart}/>
+                            </div>
+                        ))}
                     </div>
+                    <hr className={`prominent-hr my-4`} />
                 </div>
             )
         })
