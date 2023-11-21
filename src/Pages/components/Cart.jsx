@@ -1,11 +1,13 @@
 import React, { useEffect, useRef, useState } from 'react'
-import { PiForkKnifeFill } from "react-icons/pi";
 import Cart_cards from './Cart_cards';
+import EmptyCarrt from './EmptyCarrt';
+import Total from './Total';
 
 const Cart = ({ cartOpen, setcartOpen, cart, setcart }) => {
 
     const scrollPosition = useRef(0);
     const [prompt, setprompt] = useState(false);
+    const [total, settotal] = useState(0);
 
     useEffect(() => {
         const cartElement = document.getElementById("cart");
@@ -26,17 +28,25 @@ const Cart = ({ cartOpen, setcartOpen, cart, setcart }) => {
         console.log(cartOpen)
     }, [cartOpen]);
 
-
+    useEffect(() => {
+        let tot=0
+      Object.keys(cart).map((index)=>{
+       tot = tot + parseInt(cart[index][2])*cart[index][3]
+      })
+      settotal(tot)
+    
+    }, [cart])
+    
     return (
         <div>
-            {cartOpen && <div className='fixed flex h-[100vh] w-[100vw] top-0 left-0 overflow-hidden bg-gray-400 z-20 bg-opacity-40'>
+            {cartOpen && <div className='fixed flex h-[100vh] w-[100vw] top-0 left-0 overflow-hidden bg-black bg-opacity-60 z-20'>
                 <div onClick={() => setcartOpen(!cartOpen)} className='h-[100vh] w-[79vw]'></div>
                 <div id="cart" className='h-[100vh] bg-white rounded-l-2xl w-[21vw]'>
-                    <div className='flex justify-between py-3 px-4 items-center bg-slate-50'>
-                        <h6 className='font-semibold text-lg'>Your Cart</h6>
-                        <span onClick={() => setprompt(true)} className='text-yellow-500 underline text-lg font-semibold cursor-pointer'>Clear Cart</span>
-                    </div>
-                    <div className='relative h-full'>
+                    <div className='flex flex-col justify-between h-full'>
+                        <div className='flex justify-between py-3 px-4 items-center bg-slate-50'>
+                            <h6 className='font-semibold text-lg'>Your Cart</h6>
+                            <span onClick={() => setprompt(true)} className='text-yellow-500 underline text-lg font-semibold cursor-pointer'>Clear Cart</span>
+                        </div>
                         {prompt && <div className='inset-0 bg-white absolute top-0 left-0 flex flex-col justify-center items-center'>
                             <p className='text-lg'>Do you Really want to clear the cart?</p>
                             <div className='flex my-4'>
@@ -47,14 +57,13 @@ const Cart = ({ cartOpen, setcartOpen, cart, setcart }) => {
                                 <button onClick={() => setprompt(false)} className='underline px-4 mx-1 py-2'>No</button>
                             </div>
                         </div>}
-                        {Object.keys(cart).length==0 && <div className='flex flex-col justify-center items-center w-full h-full bg-white'>
-                                <PiForkKnifeFill className='text-gray-500 h-40 w-40'/>
-                                <p className='text-gray-500 text-xl'>Your Cart is Empty</p>
-                        </div>}
-                        {Object.keys(cart).map((index, iter) => (
-                            <Cart_cards key={iter} cart={cart} setcart={setcart} index={index} />
-
-                        ))}
+                        <EmptyCarrt cond={Object.keys(cart).length == 0} />
+                        {Object.keys(cart).length > 0 && <><div className='h-full overflow-y-auto'>
+                            {Object.keys(cart).map((index, iter) => (
+                                <Cart_cards key={iter} cart={cart} setcart={setcart} index={index} settotal={settotal} />
+                            ))}
+                        </div>
+                            <Total subtotal={total} deliver_charges={"0.00"} grand_total={total} /> </>}
                     </div>
                 </div>
             </div>}
