@@ -4,16 +4,18 @@ import { FaSearch } from "react-icons/fa";
 import { MdShoppingCart } from "react-icons/md";
 import { CgProfile } from "react-icons/cg";
 import { IoIosArrowDown } from "react-icons/io";
+import { useSelector } from 'react-redux';
 
 
 
-const Navbar = ({ location , cartOpen , setcartOpen , cart}) => {
+const Navbar = ({ location , cartOpen , setcartOpen}) => {
   const [total,settotal] = useState(0);
+  const cart = useSelector(state => state.cart)
 
   useEffect(()=>{
     let tot=0;
     Object.keys(cart).map((index)=>{
-      tot = tot + cart[index][3];
+      tot = tot + cart[index][0][3];
     })
     settotal(tot)
   },[cart])

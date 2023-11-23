@@ -7,7 +7,8 @@ import { FaLocationDot } from "react-icons/fa6";
 
 const Footer = () => {
     return (
-        <div className='lg:mx-[5vw] px-4 md-lg:px-8 lg:px-16 py-12 mx-[2vw] w-[96vw] lg:w-[90vw] border-[1px] mt-32 rounded-3xl border-gray-200 flex md-lg:flex-row flex-col items-center bg-white'>
+        <div className='lg:mx-[5vw] px-4 md-lg:px-8 lg:px-16 py-12 mx-[2vw] w-[96vw] lg:w-[90vw] border-[1px] mt-32 rounded-3xl border-gray-200 bg-white'>
+            <div className='flex md-lg:flex-row flex-col items-center '>
             <div><img className='h-[11.2rem] w-[12rem] rounded-sm' src="/assets/img/1649325481.webp" /></div>
             <div className='flex w-full md-lg:flex-row flex-col justify-start'>
                 <div className='w-full md-lg:w-3/5 px-0 md-lg:px-6'>
@@ -28,6 +29,9 @@ const Footer = () => {
                     </div>
                 </div>
             </div>
+        </div>
+        <hr className='h-[3px] mt-5 w-full bg-black'/>
+        <p className='text-center text-sm text-gray-900 my-2'>&copy; Powered By <a href="https://github.com/Gano603" className='underline cursor-pointer'>Gano603</a></p>
         </div>
     )
 }

@@ -2,9 +2,11 @@ import React, { useEffect, useRef, useState } from 'react'
 import Cart_cards from './Cart_cards';
 import EmptyCarrt from './EmptyCarrt';
 import Total from './Total';
+import { useSelector } from 'react-redux';
 
-const Cart = ({ cartOpen, setcartOpen, cart, setcart }) => {
+const Cart = ({ cartOpen, setcartOpen }) => {
 
+    const cart = useSelector(state => state.cart)
     const scrollPosition = useRef(0);
     const [prompt, setprompt] = useState(false);
     const [total, settotal] = useState(0);
@@ -25,16 +27,14 @@ const Cart = ({ cartOpen, setcartOpen, cart, setcart }) => {
             document.body.style.top = '';
             window.scrollTo(0, scrollPosition.current);
         }
-        console.log(cartOpen)
     }, [cartOpen]);
 
     useEffect(() => {
         let tot=0
       Object.keys(cart).map((index)=>{
-       tot = tot + parseInt(cart[index][2])*cart[index][3]
+       tot = tot + parseInt(cart[index][0][2])*cart[index][0][3]
       })
       settotal(tot)
-    
     }, [cart])
     
     return (
@@ -60,7 +60,7 @@ const Cart = ({ cartOpen, setcartOpen, cart, setcart }) => {
                         <EmptyCarrt cond={Object.keys(cart).length == 0} />
                         {Object.keys(cart).length > 0 && <><div className='h-full overflow-y-auto'>
                             {Object.keys(cart).map((index, iter) => (
-                                <Cart_cards key={iter} cart={cart} setcart={setcart} index={index} settotal={settotal} />
+                                <Cart_cards key={iter} cart={cart} index={index} />
                             ))}
                         </div>
                             <Total subtotal={total} deliver_charges={"0.00"} grand_total={total} /> </>}
