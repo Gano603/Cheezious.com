@@ -23,10 +23,15 @@ export const cartSlice = createSlice({
             else {
                 state[action.payload][3] -= 1;
             }
+        },
+        resetCart:(state)=>{
+            Object.keys(state).map((index)=>(
+                delete state[index]
+            ))
         }
     }
 })
 
-export const {addToCart,removeFromCart,addQuantity,subQuantity} = cartSlice.actions
+export const {addToCart,removeFromCart,addQuantity,subQuantity,resetCart} = cartSlice.actions
 
 export default cartSlice.reducer

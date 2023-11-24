@@ -2,11 +2,14 @@ import React, { useEffect, useRef, useState } from 'react'
 import Cart_cards from './Cart_cards';
 import EmptyCarrt from './EmptyCarrt';
 import Total from './Total';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { resetCart } from '../../../features/cart/cartSlice';
+
 
 const Cart = ({ cartOpen, setcartOpen }) => {
 
     const cart = useSelector(state => state.cart)
+    const disp = useDispatch();
     const scrollPosition = useRef(0);
     const [prompt, setprompt] = useState(false);
     const [total, settotal] = useState(0);
@@ -51,7 +54,7 @@ const Cart = ({ cartOpen, setcartOpen }) => {
                             <p className='text-lg'>Do you Really want to clear the cart?</p>
                             <div className='flex my-4'>
                                 <button onClick={() => {
-                                    setcart({})
+                                    disp(resetCart())
                                     setprompt(false)
                                 }} className='bg-red-600 text-white rounded-md px-4 mx-2 py-2'>Yes</button>
                                 <button onClick={() => setprompt(false)} className='underline px-4 mx-1 py-2'>No</button>
@@ -60,7 +63,7 @@ const Cart = ({ cartOpen, setcartOpen }) => {
                         <EmptyCarrt cond={Object.keys(cart).length == 0} />
                         {Object.keys(cart).length > 0 && <><div className='h-full overflow-y-auto'>
                             {Object.keys(cart).map((index, iter) => (
-                                <Cart_cards key={iter} cart={cart} index={index} />
+                                <Cart_cards key={iter} index={index} />
                             ))}
                         </div>
                             <Total subtotal={total} deliver_charges={"0.00"} grand_total={total} /> </>}

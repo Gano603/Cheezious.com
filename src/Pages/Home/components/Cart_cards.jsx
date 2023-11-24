@@ -1,12 +1,14 @@
 import React from 'react'
 import { GoTrash } from "react-icons/go";
 import { addQuantity, removeFromCart, subQuantity } from '../../../features/cart/cartSlice';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 
-const Cart_cards = ({ cart, index}) => {    
+const Cart_cards = ({index}) => {    
 
+    const cart = useSelector(state => state.cart)
     const disp = useDispatch();
+    console.log
         return (
             <>
             <div className='flex mx-4 py-2 my-4 border-t-2 border-gray-300'>

@@ -1,14 +1,18 @@
 import React from 'react'
-import Card from '../../Home/components/Card'
+import { useSelector } from 'react-redux'
+import ProductCard from './ProductCard';
 
-const Second_Tile = () => {
+const Second_Tile = ({title , title_head}) => {
+    const card_details = useSelector(state => state.cardDetails[title_head]).filter((index)=>( index[1]!==title))
     return (
         <div className='mt-[6vh] bg-white mx-[20vw] rounded-lg py-3 px-2'>
-            <div className='grid grid-cols-12'>
-                <div className='col-span-6 sm:col-span-6 xl:col-span-4 md-lg:mx-6 2xl:mx-4 2xl:col-span-3'>
-                    <Card imgSrc={"/assets/img/starter/start2.webp"} card_description={"Pasta Made In Yummiest White Sauce With Chicken Chunks Topped With Cheese"} card_title={"Fettucine Alfredo Pasta"} price={"990.00"}/>
+                <div className='flex overflow-auto z-10'>
+                    {card_details.map((index,iter) => (
+                        <div className='mx-4' key={iter}>
+                        <ProductCard title = { title_head } imgSrc = { index[0]} card_description = { index[2]} card_title = { index[1]} price = { index[3]} />
+                    </div>
+                    ))}
                 </div>
-            </div>
         </div>
     )
 }
