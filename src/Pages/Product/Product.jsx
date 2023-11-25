@@ -12,10 +12,10 @@ const Product = () => {
   return (
     <div className='text-black mt-20'>
       <First_tile title={title} title_head={title_head}/>
-      <div className='mx-[20vw] grid grid-cols-12 items-center'>
-        <hr className='bg-gray-400 h-[2px] col-span-5' />
-        <span className='col-span-2 mx-3 text-xl text-center font-bold'>More in {title_head}</span>
-        <hr className='bg-gray-400 h-[2px] col-span-5' />
+      <div className='mx-[20vw] w-[60vw] flex items-center'>
+        <hr className='bg-gray-300 h-[2px] w-full' />
+        <span className='mx-3 text-xl text-center font-bold min-w-max'>More in {title_head}</span>
+        <hr className='bg-gray-300 h-[2px] w-full' />
       </div>
       <Second_Tile title={title} title_head={title_head} />
     </div>

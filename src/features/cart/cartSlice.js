@@ -13,15 +13,14 @@ export const cartSlice = createSlice({
             delete state[action.payload];
         },
         addQuantity: (state, action) => {
-            const card = action.payload;
-            state[Object.keys(action.payload)] = Object.values(action.payload)
+                state[action.payload][0][3] += 1;
         },
         subQuantity: (state, action) => {
-            if (state[action.payload][3] == 1) {
+            if (state[action.payload][0][3] == 1) {
                 delete state[action.payload];
             }
             else {
-                state[action.payload][3] -= 1;
+                state[action.payload][0][3] -= 1;
             }
         },
         resetCart:(state)=>{

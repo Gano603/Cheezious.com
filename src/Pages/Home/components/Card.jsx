@@ -1,24 +1,37 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { CiHeart } from "react-icons/ci";
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { addQuantity, addToCart } from '../../../features/cart/cartSlice';
+import { addQuantity, addToCart, subQuantity } from '../../../features/cart/cartSlice';
 
 
-const Card = ({ card_title, title, card_description, price, imgSrc , iter}) => {
+const Card = ({ card_title, title, card_description, price, imgSrc, iter }) => {
     const cart = useSelector(state => state.cart)
     const disp = useDispatch();
     const nav = useNavigate();
+    const [cartProperty, setcartProperty] = useState(false);
 
     const handleCart = () => {
 
         if (cart.hasOwnProperty(card_title)) {
-            disp(addQuantity(({ [card_title]: [imgSrc, card_description, price, cart[card_title][iter][3]+1] })))
+            disp(addQuantity(({ [card_title]: [imgSrc, card_description, price, cart[card_title][iter][3] + 1] })))
         }
         else {
             disp(addToCart(({ [card_title]: [imgSrc, card_description, price, 1] })))
+            setcartProperty(true)
         }
     }
+
+    const handleSub = () => {
+        if (cart[card_title][0][3] == 1) {
+            setcartProperty(false)
+            disp(subQuantity(card_title))
+        }
+        else {
+            disp(subQuantity(card_title))
+        }
+    }
+
     return (
         <div className='border-[2px] border-slate-100 flex flex-col items-center p-2 rounded-xl hover:border-yellow-400 cursor-pointer'>
             <div onClick={() => nav(`/product/${card_title}/${title}`)} className='flex flex-col items-center'>
@@ -33,7 +46,14 @@ const Card = ({ card_title, title, card_description, price, imgSrc , iter}) => {
                 <hr className={`prominent-hr w-full my-3`} />
                 <span className='text-md mt-4 text-red-600 font-semibold'>Rs. {price}</span>
             </div>
-            <button onClick={handleCart} className={`px-4 py-2 bg-[rgb(210,0,0)] text-white transition-colors font-semibold duration-300 rounded-3xl text-[0.95rem] hover:bg-yellow-500 hover:text-black m-1 cursor-pointer`} title='Add to Cart'>Add to Cart</button>
+            {!cartProperty && <button onClick={handleCart} className={`px-4 py-2 bg-[rgb(210,0,0)] text-white transition-colors font-semibold duration-300 rounded-3xl text-[0.95rem] hover:bg-yellow-500 hover:text-black m-1 cursor-pointer`} title='Add to Cart'>Add to Cart</button>}
+            {cartProperty &&
+                <div className='flex items-center bg-[rgb(210,0,0)] px-1 py-1 rounded-3xl'>
+                    <button onClick={handleSub} className='bg-white text-[rgb(210,0,0)] rounded-full px-3 w-8 h-8 font-semibold text-2xl'>-</button>
+                    <span className='text-white py-1 px-2 mx-2 cursor-text'>{cart[card_title][0][3]}</span>
+                    <button onClick={() => disp(addQuantity(card_title))} className='bg-white text-[rgb(210,0,0)] rounded-full px- w-8 h-8 font-semibold text-2xl'>+</button>
+                </div>
+            }
         </div>
     )
 }
