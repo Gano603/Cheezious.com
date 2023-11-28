@@ -9,7 +9,7 @@ const Footer = () => {
     return (
         <div className='lg:mx-[5vw] px-4 md-lg:px-8 lg:px-16 py-12 mx-[2vw] w-[96vw] lg:w-[90vw] border-[1px] mt-32 rounded-3xl border-gray-200 bg-white'>
             <div className='flex md-lg:flex-row flex-col items-center '>
-            <div><img className='h-[11.2rem] w-[12rem] rounded-sm' src="/assets/img/1649325481.webp" /></div>
+            <div><img className='my-7 md:m-0 h-[11.2rem] w-[12rem] rounded-sm' src="/assets/img/1649325481.webp" /></div>
             <div className='flex w-full md-lg:flex-row flex-col justify-start'>
                 <div className='w-full md-lg:w-3/5 px-0 md-lg:px-6'>
                     <h6 className='font-semibold'>Cheezious</h6>

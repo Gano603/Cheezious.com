@@ -10,7 +10,7 @@ const Product = () => {
   document.title = `${title} - Cheezious` || 'Cheezious'
 
   return (
-    <div className='text-black mt-20'>
+    <div className='text-black mt-20 flex flex-col items-center'>
       <First_tile title={title} title_head={title_head}/>
       <div className='mx-[20vw] w-[60vw] flex items-center'>
         <hr className='bg-gray-300 h-[2px] w-full' />

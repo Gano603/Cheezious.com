@@ -5,6 +5,7 @@ import NotFound from './Pages/NotFound';
 import Navbar from './Pages/components/Navbar';
 import Footer from './Pages/components/Footer';
 import Product from './Pages/Product/Product';
+import Checkout from './Pages/Checkout/Checkout';
 
 function App() {
   document.title = "Cheezious";
@@ -16,6 +17,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Home cartOpen={cartOpen} setcartOpen={setcartOpen}/>} />
         <Route path='/product/:title/:title_head' element={<Product />} />
+        <Route path='/checkout' element={<Checkout />} />
         {/* <Route path='/product/:title' />
         {({match})=>{
           if(!match || !match.params.title){

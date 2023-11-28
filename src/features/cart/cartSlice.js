@@ -15,6 +15,9 @@ export const cartSlice = createSlice({
         addQuantity: (state, action) => {
                 state[action.payload][0][3] += 1;
         },
+        addcompQuantity: (state, action) => {
+            state[Object.keys(action.payload)[0]] = Object.values(action.payload)
+    },
         subQuantity: (state, action) => {
             if (state[action.payload][0][3] == 1) {
                 delete state[action.payload];
@@ -31,6 +34,6 @@ export const cartSlice = createSlice({
     }
 })
 
-export const {addToCart,removeFromCart,addQuantity,subQuantity,resetCart} = cartSlice.actions
+export const {addToCart,removeFromCart,addQuantity,subQuantity,resetCart,addcompQuantity} = cartSlice.actions
 
 export default cartSlice.reducer

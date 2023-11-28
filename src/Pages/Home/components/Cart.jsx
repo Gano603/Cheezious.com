@@ -4,11 +4,13 @@ import EmptyCarrt from './EmptyCarrt';
 import Total from './Total';
 import { useDispatch, useSelector } from 'react-redux';
 import { resetCart } from '../../../features/cart/cartSlice';
+import { setcartOpen } from '../../../features/States/StatesSlice';
 
 
-const Cart = ({ cartOpen, setcartOpen }) => {
+const Cart = () => {
 
     const cart = useSelector(state => state.cart)
+    const States = useSelector(state => state.State)
     const disp = useDispatch();
     const scrollPosition = useRef(0);
     const [prompt, setprompt] = useState(false);
@@ -16,7 +18,7 @@ const Cart = ({ cartOpen, setcartOpen }) => {
 
     useEffect(() => {
         const cartElement = document.getElementById("cart");
-        if (cartOpen) {
+        if (States["cartOpen"]) {
             scrollPosition.current = window.scrollY;
             document.body.style.overflow = 'hidden'; // Prevent scrolling on body
             cartElement.style.overflowY = 'auto'; // Enable scrolling within the cart
@@ -30,7 +32,7 @@ const Cart = ({ cartOpen, setcartOpen }) => {
             document.body.style.top = '';
             window.scrollTo(0, scrollPosition.current);
         }
-    }, [cartOpen]);
+    }, [States["cartOpen"]]);
 
     useEffect(() => {
         let tot=0
@@ -42,9 +44,9 @@ const Cart = ({ cartOpen, setcartOpen }) => {
     
     return (
         <div>
-            {cartOpen && <div className='fixed flex h-[100vh] w-[100vw] top-0 left-0 overflow-hidden bg-black bg-opacity-60 z-20'>
-                <div onClick={() => setcartOpen(!cartOpen)} className='h-[100vh] w-[79vw]'></div>
-                <div id="cart" className='h-[100vh] bg-white rounded-l-2xl w-[21vw]'>
+            {States["cartOpen"] && <div className='fixed flex h-[100vh] w-[100vw] top-0 left-0 overflow-hidden bg-black bg-opacity-60 z-20'>
+                <div onClick={() => disp(setcartOpen(false))} className='h-[100vh] w-[79vw]'></div>
+                <div id="cart" className='h-[100vh] bg-white rounded-l-2xl w-96'>
                     <div className='flex flex-col justify-between h-full'>
                         <div className='flex justify-between py-3 px-4 items-center bg-slate-50'>
                             <h6 className='font-semibold text-lg'>Your Cart</h6>
@@ -66,7 +68,8 @@ const Cart = ({ cartOpen, setcartOpen }) => {
                                 <Cart_cards key={iter} index={index} />
                             ))}
                         </div>
-                            <Total subtotal={total} deliver_charges={"0.00"} grand_total={total} /> </>}
+                            <div className='border-t-2'>
+                            <Total checkout={true} subtotal={total} deliver_charges={"0.00"} grand_total={total} /></div> </>}
                     </div>
                 </div>
             </div>}

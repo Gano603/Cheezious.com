@@ -48,7 +48,7 @@ const Card = ({ card_title, title, card_description, price, imgSrc, iter }) => {
             </div>
             {!cartProperty && <button onClick={handleCart} className={`px-4 py-2 bg-[rgb(210,0,0)] text-white transition-colors font-semibold duration-300 rounded-3xl text-[0.95rem] hover:bg-yellow-500 hover:text-black m-1 cursor-pointer`} title='Add to Cart'>Add to Cart</button>}
             {cartProperty &&
-                <div className='flex items-center bg-[rgb(210,0,0)] px-1 py-1 rounded-3xl'>
+                <div className='flex items-center bg-[rgb(210,0,0)] px-1 py-1 rounded-3xl m-1'>
                     <button onClick={handleSub} className='bg-white text-[rgb(210,0,0)] rounded-full px-3 w-8 h-8 font-semibold text-2xl'>-</button>
                     <span className='text-white py-1 px-2 mx-2 cursor-text'>{cart[card_title][0][3]}</span>
                     <button onClick={() => disp(addQuantity(card_title))} className='bg-white text-[rgb(210,0,0)] rounded-full px- w-8 h-8 font-semibold text-2xl'>+</button>
