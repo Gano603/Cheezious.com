@@ -1,13 +1,17 @@
 import React from 'react'
 import First_tile from './components/First_tile';
 import Second_Tile from './components/Second_Tile';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
 
 
 const Product = () => {
   const { title, title_head } = useParams();
+  const nav = useNavigate();
+  title === undefined || title_head === undefined ? nav('/'):""
   document.title = `${title} - Cheezious` || 'Cheezious'
+  
+  window.scrollTo(0,0);
 
   return (
     <div className='text-black mt-20 flex flex-col items-center'>

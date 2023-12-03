@@ -6,33 +6,33 @@ const initialState =  {
     ],
     "Starters": [
         ["/assets/img/starter/start1.webp", "Cheezy Sticks", "Freshly Baked Bread Filled With The Yummiest Cheese Blend To Satisfy Your Cravings.", "590.00"],
-        ["/assets/img/starter/start2.webp", "Oven Baked Wings", "Fresh Oven Baked Wings Served With Dip Sauce", "550.00"],
-        ["/assets/img/starter/start3.webp", "Flaming Wings", "Fresh Oven Baked Wings Tossed In Hot Peri Peri Sauce And Served With Dip Sauce", "600.00"],
-        ["/assets/img/starter/start4.webp", "Calzone Chunks", "4 Pcs Stuffed Calzone Chunks Served with Sauce & Fries", "1,050.00"],
+        ["/assets/img/starter/start2.webp", "Oven Baked Wings", "Fresh Oven Baked Wings Served With Dip Sauce", "550.00",{"Variation":{"6pcs":"550.00","12pcs":"1050.00",Required:true,type:"radio"}}],
+        ["/assets/img/starter/start3.webp", "Flaming Wings", "Fresh Oven Baked Wings Tossed In Hot Peri Peri Sauce And Served With Dip Sauce", "600.00",{"Variation":{"6pcs":"600.00","12pcs":"1150.00",Required:true,type:"radio"}}],
+        ["/assets/img/starter/start4.webp", "Calzone Chunks", "4 Pcs Stuffed Calzone Chunks Served with Sauce & Fries", "1050.00"],
         ["/assets/img/starter/start5.webp", "Arabic Rolls", "4 Pcs Arabic Rolls Stuffed with Yummiest Mix Served with Sauce", "650.00"],
         ["/assets/img/starter/start6.webp", "Behari Rolls", "4 Pcs Behari Rolls Stuffed with Yummiest Mix Served with Sauce", "650.00"]
     ],
     "Somewhat Local": [
-        ["/assets/img/local/local1.webp", "Chicken Tikka", "Tender Chunks of Marinated Grilled Chicken with Savory Onion", "590.00"],
-        ["/assets/img/local/local2.webp", "Chicken Fajita", "An Authentic Taste of Fajita Marinated Chicken Onion and Bell Peppers.", "590.00"],
-        ["/assets/img/local/local3.webp", "Chicken Lover", "Extreme Quantity of Chicken and Onion with Rich Mozzarella Cheese", "590.00"],
-        ["/assets/img/local/local4.webp", "Chicken Tandoori", "Our Traditionally Developed Tandoori Chicken with Onion, Olives, Jalapeno and Tomato Sauce", "590.00"],
-        ["/assets/img/local/local5.webp", "Hot N Spicy", "Hot and Spicy Chicken Onion, Jalapeno", "590.00"],
-        ["/assets/img/local/local6.webp", "Vegetable Pizza", "Vegetables, Pizza Sauce And Cheese", "590.00"]
+        ["/assets/img/local/local1.webp", "Chicken Tikka", "Tender Chunks of Marinated Grilled Chicken with Savory Onion", "590.00",{"Variation":{"Small":"590.00","Regular":"1250.00","Large":"1650.00","Party":"2700.00",Required:true,type:"radio"},"Extra Topping":{"Chicken Small":"100.00","Cheese Small":"100.00",Required:false,type:"radio"}}],
+        ["/assets/img/local/local2.webp", "Chicken Fajita", "An Authentic Taste of Fajita Marinated Chicken Onion and Bell Peppers.", "590.00",{"Variation":{"Small":"590.00","Regular":"1250.00","Large":"1650.00","Party":"2700.00",Required:true,type:"radio"},"Extra Topping":{"Chicken Small":"100.00","Cheese Small":"100.00",Required:false,type:"radio"}}],
+        ["/assets/img/local/local3.webp", "Chicken Lover", "Extreme Quantity of Chicken and Onion with Rich Mozzarella Cheese", "590.00",{"Variation":{"Small":"590.00","Regular":"1250.00","Large":"1650.00","Party":"2700.00",Required:true,type:"radio"},"Extra Topping":{"Chicken Small":"100.00","Cheese Small":"100.00",Required:false,type:"radio"}}],
+        ["/assets/img/local/local4.webp", "Chicken Tandoori", "Our Traditionally Developed Tandoori Chicken with Onion, Olives, Jalapeno and Tomato Sauce", "590.00",{"Variation":{"Small":"590.00","Regular":"1250.00","Large":"1650.00","Party":"2700.00",Required:true,type:"radio"},"Extra Topping":{"Chicken Small":"100.00","Cheese Small":"100.00",Required:false,type:"radio"}}],
+        ["/assets/img/local/local5.webp", "Hot N Spicy", "Hot and Spicy Chicken Onion, Jalapeno", "590.00",{"Variation":{"Small":"590.00","Regular":"1250.00","Large":"1650.00","Party":"2700.00",Required:true,type:"radio"},"Extra Topping":{"Chicken Small":"120.00","Cheese Small":"120.00",Required:false,type:"check"}}],
+        ["/assets/img/local/local6.webp", "Vegetable Pizza", "Vegetables, Pizza Sauce And Cheese", "590.00",{"Variation":{"Small":"590.00","Regular":"1250.00","Large":"1650.00","Party":"2700.00",Required:true,type:"radio"},"Extra Topping":{"Vegge":"100.00","Cheese Small":"100.00",Required:false,type:"check"}}]
     ],
     "Somewhat Sooper": [
-        ["/assets/img/sooper/sop1.webp", "Euro", "Delight Combination of Specially Marinated Smoked Chicken Bell Pepper, Mushrooms with Tomato Sauce", "590.00"],
-        ["/assets/img/sooper/sop2.webp", "Chicken Supreme", "A Combination Of 3 Flavors of Chicken, Black Olives, Mushrooms Bell Pepper and Onion with Tomato Sauce.", "590.00"],
-        ["/assets/img/sooper/sop3.webp", "Black Pepper Tikka", "A Blend of Marinated Black Pepper Chicken, Onion & Bell Pepper", "590.00"],
-        ["/assets/img/sooper/sop4.webp", "Chicken Mushroom", "Tender Chunks of Marinated Grilled Chicken Tikka, Lots of Mushrooms, Onion and Tomato Sauce", "590.00"],
-        ["/assets/img/sooper/sop5.webp", "Sausage Pizza", "Chicken Sausages, Pizza Sauce and Cheese", "590.00"],
-        ["/assets/img/sooper/sop6.webp", "Cheese Lover Pizza", "Yummiest Blend of Cheese and Pizza Sauce", "590.00"],
-        ["/assets/img/sooper/sop7.webp", "Chicken Pepperoni Pizza", "Chicken Pepperoni, Pizza Sauce and Cheese", "590.00"]
+        ["/assets/img/sooper/sop1.webp", "Euro", "Delight Combination of Specially Marinated Smoked Chicken Bell Pepper, Mushrooms with Tomato Sauce", "590.00",{"Variation":{"Small":"590.00","Regular":"1250.00","Large":"1650.00","Party":"2700.00",Required:true,type:"radio"},"Extra Topping":{"Chicken Small":"100.00","Cheese Small":"100.00",Required:false,type:"check"}}],
+        ["/assets/img/sooper/sop2.webp", "Chicken Supreme", "A Combination Of 3 Flavors of Chicken, Black Olives, Mushrooms Bell Pepper and Onion with Tomato Sauce.", "590.00",{"Variation":{"Small":"590.00","Regular":"1250.00","Large":"1650.00","Party":"2700.00",Required:true,type:"radio"},"Extra Topping":{"Chicken Small":"100.00","Cheese Small":"100.00",Required:false,type:"check"}}],
+        ["/assets/img/sooper/sop3.webp", "Black Pepper Tikka", "A Blend of Marinated Black Pepper Chicken, Onion & Bell Pepper", "590.00",{"Variation":{"Small":"590.00","Regular":"1250.00","Large":"1650.00","Party":"2700.00",Required:true,type:"radio"},"Extra Topping":{"Chicken Regular":"120.00","Cheese Regular":"120.00",Required:false,type:"check"}}],
+        ["/assets/img/sooper/sop4.webp", "Chicken Mushroom", "Tender Chunks of Marinated Grilled Chicken Tikka, Lots of Mushrooms, Onion and Tomato Sauce", "590.00",{"Variation":{"Small":"590.00","Regular":"1250.00","Large":"1650.00","Party":"2700.00",Required:true,type:"radio"},"Extra Topping":{"Chicken Large":"180.00","Cheese Large":"180.00",Required:false,type:"check"}}],
+        ["/assets/img/sooper/sop5.webp", "Sausage Pizza", "Chicken Sausages, Pizza Sauce and Cheese", "590.00",{"Variation":{"Small":"590.00","Regular":"1250.00","Large":"1650.00","Party":"2700.00",Required:true,type:"radio"},"Extra Topping":{"Extra Sausage":"120.00","Cheese Regular":"120.00",Required:false,type:"radio"}}],
+        ["/assets/img/sooper/sop6.webp", "Cheese Lover Pizza", "Yummiest Blend of Cheese and Pizza Sauce", "590.00",{"Variation":{"Small":"590.00","Regular":"1250.00","Large":"1650.00","Party":"2700.00",Required:true,type:"radio"},"Extra Topping":{"CHEESE!!":"120.00",Required:false,type:"radio"}}],
+        ["/assets/img/sooper/sop7.webp", "Chicken Pepperoni Pizza", "Chicken Pepperoni, Pizza Sauce and Cheese", "590.00",{"Variation":{"Small":"590.00","Regular":"1250.00","Large":"1650.00","Party":"2700.00",Required:true,type:"radio"},"Extra Topping":{"Extra Chicken Sausage":"180.00","Cheese Large":"180.00",Required:false,type:"check"}}]
     ],
     "Cheezy Treats": [
-        ["/assets/img/cheezytreats/chees1.webp", "Cheezious Special", "Delicious Special Chicken with Black Olives, Sausages and Bell Pepper", "1,450.00"],
-        ["/assets/img/cheezytreats/chees2.webp", "Behari Kebab", "Enjoy Special Chicken Bihari Kabab, Grilled Chicken with Onion Jalapenos and Ginger Garnishing", "1,450.00"],
-        ["/assets/img/cheezytreats/chees3.webp", "Chicken Extreme", "Combination Of 3 Flavors of Chicken with Onion Bell Pepper, Green Olives, Mushrooms and Special Sauce", "1,450.00"],
+        ["/assets/img/cheezytreats/chees1.webp", "Cheezious Special", "Delicious Special Chicken with Black Olives, Sausages and Bell Pepper", "1,450.00",{"Variation":{"Regular":"1450.00","Large":"1850.00","Party":"2900.00",Required:true,type:"radio"},"Extra Topping":{"Chicken Regular":"120.00","Cheese Regular":"120.00",Required:false,type:"check"}}],
+        ["/assets/img/cheezytreats/chees2.webp", "Behari Kebab", "Enjoy Special Chicken Bihari Kabab, Grilled Chicken with Onion Jalapenos and Ginger Garnishing", "1,450.00",{"Variation":{"Regular":"1450.00","Large":"1850.00","Party":"2900.00",Required:true,type:"radio"},"Extra Topping":{"Chicken Large":"180.00","Cheese Large":"180.00",Required:false,type:"check"}}],
+        ["/assets/img/cheezytreats/chees3.webp", "Chicken Extreme", "Combination Of 3 Flavors of Chicken with Onion Bell Pepper, Green Olives, Mushrooms and Special Sauce", "1,450.00",{"Variation":{"Regular":"1450.00","Large":"1850.00","Party":"2900.00",Required:true,type:"radio"},"Extra Topping":{"Chicken Large":"180.00","Cheese Large":"180.00",Required:false,type:"check"}}],
     ],
     "Sandwiches & Platters": [
         ["/assets/img/sooper/sop1.webp", "Special Roasted Platter", "4 Pcs Behari Rolls, 6pcs Wings Served with Fries & Sauce", "1,080.00"],
@@ -47,8 +47,8 @@ const initialState =  {
         ["/assets/img/deals/deal3.webp", "Large Pizza Deal", "Any Flavor From Local Love Or Over the Sea Flavor Category & 1 Liter Drink", "1,790.00"],
     ],
     "Special Pizza": [
-        ["/assets/img/special/spec1.webp", "Crown Crust", "Scrumptious Pizza with A Yummy Blend of Grilled Chicken, Olives, Onion, Capsicum and Special Sauce", "1,450.00"],
-        ["/assets/img/special/spec2.webp", "Special Chicken", "Green Olives, Mushroom, Edges Filled With Cheese Or Kabab", "1,500.00"],
+        ["/assets/img/special/spec1.webp", "Crown Crust", "Scrumptious Pizza with A Yummy Blend of Grilled Chicken, Olives, Onion, Capsicum and Special Sauce", "1,450.00",{"Variation":{"Regular":"1450.00","Large":"1850.00","Party":"2900.00",Required:true,type:"radio"}}],
+        ["/assets/img/special/spec2.webp", "Special Chicken", "Green Olives, Mushroom, Edges Filled With Cheese Or Kabab", "1,500.00",{"Edge Filling":{"Kebab":"","Cheese":"",Required:true,type:"radio"},"Variation":{"Regular":"1500.00","Large":"2200.00","Party":"3200.00",Required:true,type:"radio"}}],
     ],
     "Somewhat Amazing": [
         ["/assets/img/amazing/somea1.webp", "Somewhat Amazing1", "2 Bazinga, Regular Fries, 2 Regular Drink", "1,150.00"],

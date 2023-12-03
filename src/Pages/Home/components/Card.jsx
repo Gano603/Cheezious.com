@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import { addQuantity, addToCart, subQuantity } from '../../../features/cart/cartSlice';
 
 
-const Card = ({ card_title, title, card_description, price, imgSrc, iter }) => {
+const Card = ({ card_title, title, card_description, price, imgSrc, iter , cond}) => {
     const cart = useSelector(state => state.cart)
     const disp = useDispatch();
     const nav = useNavigate();
@@ -44,7 +44,7 @@ const Card = ({ card_title, title, card_description, price, imgSrc, iter }) => {
                     <p className='text-xs line-clamp-2 mt-1 text-center px-2 h-8'>{card_description}</p>
                 </div>
                 <hr className={`prominent-hr w-full my-3`} />
-                <span className='text-md mt-4 text-red-600 font-semibold'>Rs. {price}</span>
+                <span className='text-md mt-4 text-red-600 font-semibold'>{cond? "From":""} Rs. {price}</span>
             </div>
             {!cartProperty && <button onClick={handleCart} className={`px-4 py-2 bg-[rgb(210,0,0)] text-white transition-colors font-semibold duration-300 rounded-3xl text-[0.95rem] hover:bg-yellow-500 hover:text-black m-1 cursor-pointer`} title='Add to Cart'>Add to Cart</button>}
             {cartProperty &&

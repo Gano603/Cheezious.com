@@ -18,15 +18,6 @@ function App() {
         <Route path='/' element={<Home cartOpen={cartOpen} setcartOpen={setcartOpen}/>} />
         <Route path='/product/:title/:title_head' element={<Product />} />
         <Route path='/checkout' element={<Checkout />} />
-        {/* <Route path='/product/:title' />
-        {({match})=>{
-          if(!match || !match.params.title){
-            return <redirect to={'/'} />
-          }
-          else{
-            return <Product cart={cart} setcart={setcart} cartOpen={cartOpen} setcartOpen={setcartOpen} />
-          }
-        }} */}
         <Route path='*' element={<NotFound />} />
       </Routes>
       <Footer />

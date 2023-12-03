@@ -20,15 +20,15 @@ const Cart = () => {
         const cartElement = document.getElementById("cart");
         if (States["cartOpen"]) {
             scrollPosition.current = window.scrollY;
-            document.body.style.overflow = 'hidden'; // Prevent scrolling on body
-            cartElement.style.overflowY = 'auto'; // Enable scrolling within the cart
+            document.body.style.overflow = 'hidden';
+            cartElement.style.overflowY = 'auto';
             cartElement.style.position = 'fixed';
             cartElement.style.top = '0';
             cartElement.style.right = '0';
             document.body.style.top = `-${scrollPosition.current}px`;
         } else {
             document.body.style.position = '';
-            document.body.style.overflow = ''; // Prevent scrolling on body
+            document.body.style.overflow = '';
             document.body.style.top = '';
             window.scrollTo(0, scrollPosition.current);
         }
