@@ -1,14 +1,13 @@
 import React from 'react'
 import { BsCashCoin } from "react-icons/bs";
-import { useDispatch } from 'react-redux';
-import { setaddress, setemail, setinstruction, setname, setphone, settime } from '../../../features/States/StatesSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import { setemail, setinstruction, setname, setphone, settime } from '../../../features/States/StatesSlice';
 
 
-const LeftPanel = () => {
+const LeftPanel = ({setaddWindow}) => {
 
     const disp = useDispatch();
-
-    const address = "Abra Cadabra";
+    const {address} = useSelector(state => state.State);
     return (
         <div className='w-full md-lg:w-4/6 mx-3 bg-slate-50 rounded-lg'>
             <div className='w-full flex flex-wrap'>
@@ -29,7 +28,7 @@ const LeftPanel = () => {
                 <div className='w-full mx-2 my-6'>
                     <h3 className='my-2'>Your Address</h3>
                     <p className='text-slate-500'>{address}</p>
-                    <button className={`px-4 py-2 bg-[rgb(210,0,0)] text-white transition-colors font-semibold duration-300 rounded-3xl text-[0.95rem] hover:bg-yellow-500 hover:text-black m-1 cursor-pointer`} onClick={()=> disp(setaddress("abra"))} title='Add to Cart'>Add/ Change Address</button>
+                    <button className={`px-4 py-2 bg-[rgb(210,0,0)] text-white transition-colors font-semibold duration-300 rounded-3xl text-[0.95rem] hover:bg-yellow-500 hover:text-black m-1 cursor-pointer`} onClick={()=> setaddWindow(true)} title='Add to Cart'>Add/ Change Address</button>
                 </div>
             </div>
             <div className='w-[96%] mx-2 h-max mt-20'>
