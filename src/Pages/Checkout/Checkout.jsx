@@ -15,6 +15,7 @@ const Checkout = () => {
     const disp = useDispatch();
     const cart = useSelector(state => state.cart)
     const [total, settotal] = useState(0);
+    window.scrollTo(0, 0);
 
     useEffect(() => {
         let tot = 0
@@ -23,7 +24,7 @@ const Checkout = () => {
         })
         settotal(tot)
         document.body.style.position = '';
-        document.body.style.overflow = ''; // Prevent scrolling on body
+        document.body.style.overflow = '';
         document.body.style.top = '';
     }, [cart])
 

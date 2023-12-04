@@ -10,10 +10,28 @@ const StateSlice = createSlice({
     reducers:{
         setcartOpen:(state,action)=>{
             state["cartOpen"] = action.payload;
+        },
+        setname:(state,action)=>{
+            state["name"] = action.payload;
+        },
+        setemail:(state,action)=>{
+            state["email"] = action.payload;
+        },
+        setphone:(state,action)=>{
+            state["phone"] = action.payload;
+        },
+        setinstruction:(state,action)=>{
+            state["instruction"] = action.payload;
+        },
+        settime:(state,action)=>{
+            state["time"] = action.payload;
+        },
+        setaddress:(state,action)=>{
+            state["address"] = action.payload;
         }
     }
 })
 
-export const {setcartOpen} = StateSlice.actions;
+export const {setcartOpen,setemail,setname,setphone,setinstruction,settime,setaddress} = StateSlice.actions;
 
 export default StateSlice.reducer
