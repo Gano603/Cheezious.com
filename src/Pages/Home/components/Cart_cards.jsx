@@ -2,16 +2,11 @@ import React from 'react'
 import { GoTrash } from "react-icons/go";
 import { addQuantity, removeFromCart, subQuantity } from '../../../features/cart/cartSlice';
 import { useDispatch, useSelector } from 'react-redux';
-import { useEffect } from 'react';
 
 
 const Cart_cards = ({ index }) => {
 
     const cart = useSelector(state => state.cart)
-
-    useEffect(() => {
-        console.log(cart[index][0][4])
-    }, [])
     const disp = useDispatch();
     return (
         <>
@@ -25,7 +20,6 @@ const Cart_cards = ({ index }) => {
                             return (
                                 <div className='my-1'>
                                     <h2 className='text-sm font-semibold'>{ind}</h2>
-                                    {/* <span>{typeof cart[index][0][4][ind]}</span> */}
                                     {typeof cart[index][0][4][ind] === 'object' && cart[index][0][4][ind].map((index)=> (<div><span className='text-sm font-semibold text-gray-500'>{"1x "}</span><span className='text-[0.92rem] font-semibold text-gray-400'>{index}</span></div>))}
                                     {typeof cart[index][0][4][ind] === 'string' && <div><span className='text-sm font-semibold text-gray-500'>{"1x "}</span><span className='text-[0.92rem] font-semibold text-gray-400'>{cart[index][0][4][ind]}</span></div>}
                                 </div>
