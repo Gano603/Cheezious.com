@@ -14,7 +14,7 @@ const Product = () => {
   window.scrollTo(0,0);
 
   return (
-    <div className='text-black mt-20 flex flex-col items-center'>
+    <div className='text-black mt-[5rem] flex flex-col items-center'>
       <First_tile title={title} title_head={title_head}/>
       <div className='mx-[20vw] w-[60vw] flex items-center'>
         <hr className='bg-gray-300 h-[2px] w-full' />

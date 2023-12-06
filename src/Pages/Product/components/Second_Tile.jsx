@@ -7,7 +7,7 @@ const Second_Tile = ({ title, title_head }) => {
     return (
         <div className='mt-12 bg-white rounded-lg py-3 px-2 w-full'>
             <div className='flex justify-center'>
-                <div className='w-11/12 lg:w-10/12 xl:w-9/12 overflow-hidden'>
+                <div className='w-11/12 lg:w-10/12 xl:w-9/12 overflow-x-scroll'>
                     <div className='flex'>
                     {card_details.map((index, iter) => (
                         <div className='mx-1' key={iter}>
