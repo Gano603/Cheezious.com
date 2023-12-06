@@ -28,10 +28,16 @@ const StateSlice = createSlice({
         },
         setaddress:(state,action)=>{
             state["address"] = action.payload;
+        },
+        setcity:(state,action) =>{
+            state["city"] = action.payload;
+        },
+        setsubcity:(state,action) =>{
+            state["subcity"] = action.payload;
         }
     }
 })
 
-export const {setcartOpen,setemail,setname,setphone,setinstruction,settime,setaddress} = StateSlice.actions;
+export const {setcartOpen,setemail,setname,setphone,setinstruction,settime,setaddress,setcity,setsubcity} = StateSlice.actions;
 
 export default StateSlice.reducer

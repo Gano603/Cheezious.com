@@ -6,6 +6,7 @@ import Navbar from './Pages/components/Navbar';
 import Footer from './Pages/components/Footer';
 import Product from './Pages/Product/Product';
 import Checkout from './Pages/Checkout/Checkout';
+import Dashboard from './Pages/Dashboard/Dashboard';
 
 function App() {
   document.title = "Cheezious";
@@ -18,6 +19,7 @@ function App() {
         <Route path='/' element={<Home cartOpen={cartOpen} setcartOpen={setcartOpen}/>} />
         <Route path='/product/:title/:title_head' element={<Product />} />
         <Route path='/checkout' element={<Checkout />} />
+        <Route path='/dashboard' element={<Dashboard />} />
         <Route path='*' element={<NotFound />} />
       </Routes>
       <Footer />

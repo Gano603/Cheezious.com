@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { IoIosArrowDown } from "react-icons/io";
-import { ImCross } from "react-icons/im";
 import Total from '../Home/components/Total';
 import Checkout_cards from './components/Checkout_cards';
 import LeftPanel from './components/LeftPanel';
-import { setaddress } from '../../features/States/StatesSlice';
+import Address_box from './components/Address_box';
 
 
 
@@ -15,7 +14,6 @@ const Checkout = () => {
     const [addWindow, setaddWindow] = useState(false);
 
     const nav = useNavigate();
-    const disp = useDispatch();
     const cart = useSelector(state => state.cart)
     window.scrollTo(0, 0);
 
@@ -32,31 +30,8 @@ const Checkout = () => {
 
     return (
         <>
-            {addWindow && <>
-                <div className='absolute inset-0 bg-black bg-opacity-25 z-30 backdrop-blur-md'>
-                    <div className='w-full h-full flex justify-center items-center'>
-                        <div className='bg-white w-[38rem] py-4 px-5 rounded-xl'>
-                            <div className='flex justify-between items-center'>
-                                <span>Add New Address</span>
-                                <span onClick={()=> setaddWindow(false)} className='p-2 bg-gray-500 text-white cursor-pointer rounded-md'><ImCross /></span>
-                            </div>
-                            <div className='mx-2 h-max'>
-                                <h3 className='my-2'>Address (with Post code if applicable)</h3>
-                                <input type="text" onChange={(e) => disp(setaddress(e.target.value))} placeholder='Enter your complete street address' className='border-[1px] border-slate-400 h-10 rounded-3xl w-full outline-none px-4' />
-                            </div>
-                            <div className='mx-2 h-max'>
-                                <h3 className='my-2'>Area/City</h3>
-                                <input type="text" placeholder='Enter your Area/City' className='border-[1px] border-slate-400 h-10 rounded-3xl w-full outline-none px-4' />
-                            </div>
-                            <span className='text-sm text-gray-500'>To change your area/region, please do it from top header location button</span>
-                            <button onClick={()=> setaddWindow(false)} className='w-full py-[0.7rem] bg-[rgb(210,0,0)] rounded-3xl text-white font-semibold my-2 hover:text-black hover:bg-yellow-400 transition-colors duration-200'>Save Address</button>
-                        </div>
-
-                    </div>
-                </div>
-            </>
-            }
-            <div className='bg-white mt-[16vh] mb-[6vh] mx-0 xl:mx-[6vw] 2xl:mx-[12vw] px-4 pb-8 flex flex-col p-2 rounded-2xl'>
+            {addWindow && <Address_box setaddWindow={setaddWindow} />}
+            <div className='bg-white mt-[5rem] mb-[6vh] mx-0 xl:mx-[6vw] 2xl:mx-[12vw] px-4 pb-8 flex flex-col p-2 rounded-2xl'>
                 <div className='flex items-center mb-6 mt-1'>
                     <span onClick={() => nav('/')} className='text-[0.75rem] text-gray-400 hover:underline cursor-pointer'>Home</span>
                     <IoIosArrowDown className='-rotate-90 mx-2 text-[0.7rem] text-gray-400' />
