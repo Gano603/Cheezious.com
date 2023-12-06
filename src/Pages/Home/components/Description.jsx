@@ -14,7 +14,7 @@ const Description = () => {
 
   return (
     <div className='w-[90vw] mx-[5vw]'>
-        <div className='bg-yellow-500 flex flex-col items-center py-10 px-2 md-lg:px-16 rounded-xl'>
+        <div className='bg-yellow-500 flex flex-col items-center py-10 px-4 md-lg:px-16 rounded-xl'>
             <h2 className='my-4 text-black text-4xl font-semibold'>Finest Taste Ever</h2>
             <div className='rounded-[0.3rem] overflow-hidden w-full'>
               {description.map((index,iter)=>(
