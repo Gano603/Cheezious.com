@@ -36,3 +36,13 @@ html::-webkit-scrollbar-track-piece{
 html::-webkit-scrollbar-track-piece{
     color: gray;
 }
+
+.scrollable-content {  
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE/Edge */
+  }
+  
+  /* Hide scrollbar for WebKit-based browsers (e.g., Chrome, Safari) */
+  .scrollable-content::-webkit-scrollbar {
+    display: none;
+  }

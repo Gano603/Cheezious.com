@@ -4,17 +4,16 @@ import Description from './components/Description'
 import Hero from './components/Hero'
 import Cart from './components/Cart'
 
-const Home = ({cart , setcart , cartOpen , setcartOpen}) => {
-
-  const [scrollmagic, setscrollmagic] = useState(false)
+const Home = () => {
 
   return (
     <>
-      <Hero scrollmagic={scrollmagic} />
-      <CardList cart={cart} setcart={setcart}/>
+      <Hero />
+      <CardList />
       <Description />
+      <Cart />
 
-      <Cart cartOpen={cartOpen} setcartOpen={setcartOpen}/>
+      
       {/*HERO FIX
         responsive cart
         checked issue
