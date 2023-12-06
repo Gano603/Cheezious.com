@@ -10,7 +10,7 @@ const Description_tabs = ({ description_title, description_data, selected, cond,
         <IoIosArrowDown className={`scale-150 text-white mr-2 sm:mr-6 transition-all duration-300 ${cond? "rotate-180":""}`}/>
       </div>
         <p
-          className={`bg-black bg-opacity-90 text-white text-sm sm:text-base py-7 pl-4 leading-10 mb-4 transition-all duration-300 ${cond ? '' : 'scale-y-0 hidden'}`}
+          className={`bg-black bg-opacity-90 text-white text-sm sm:text-[1rem] py-7 px-4 leading-10 mb-4 transition-all duration-300 ${cond ? '' : 'scale-y-0 hidden'}`}
           dangerouslySetInnerHTML={{ __html: description_data }}
         />
 
