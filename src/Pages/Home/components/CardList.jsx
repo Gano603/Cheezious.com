@@ -1,13 +1,18 @@
 import React from 'react'
 import Card from './Card'
 import { useSelector } from 'react-redux';
+import Vars_card from './Vars_card';
 
 
 const CardList = () => {
 
     const card_list = useSelector(state => state.cardDetails)
+
+    const { newWindow } = useSelector(state => state.State);
+
     return (
         <div className='mt-[13rem]'>
+            {newWindow[0] && <Vars_card />}
             {Object.keys(card_list).map((title, iter1) => {
                 const data = card_list[title];
                 return (

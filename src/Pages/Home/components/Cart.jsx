@@ -10,15 +10,14 @@ import { setcartOpen } from '../../../features/States/StatesSlice';
 const Cart = () => {
 
     const cart = useSelector(state => state.cart)
-    const States = useSelector(state => state.State)
+    const {total,cartOpen} = useSelector(state => state.State)
     const disp = useDispatch();
     const scrollPosition = useRef(0);
     const [prompt, setprompt] = useState(false);
-    const [total, settotal] = useState(0);
 
     useEffect(() => {
         const cartElement = document.getElementById("cart");
-        if (States["cartOpen"]) {
+        if (cartOpen) {
             scrollPosition.current = window.scrollY;
             document.body.style.overflow = 'hidden';
             cartElement.style.overflowY = 'auto';
@@ -32,21 +31,14 @@ const Cart = () => {
             document.body.style.top = '';
             window.scrollTo(0, scrollPosition.current);
         }
-    }, [States["cartOpen"]]);
+    }, [cartOpen]);
 
-    useEffect(() => {
-        let tot=0
-      Object.keys(cart).map((index)=>{
-       tot = tot + parseInt(cart[index][0][2])*cart[index][0][3]
-      })
-      settotal(tot)
-    }, [cart])
     
     return (
         <div>
-            {States["cartOpen"] && <div className='fixed flex h-[100vh] w-[100vw] top-0 left-0 overflow-hidden bg-black bg-opacity-60 z-20'>
-                <div onClick={() => disp(setcartOpen(false))} className='h-[100vh] w-[79vw]'></div>
-                <div id="cart" className='h-[100vh] bg-white rounded-l-2xl w-96'>
+            {cartOpen && <div className='fixed flex sm:flex-row h-[100vh] w-[100vw] top-0 left-0 overflow-hidden bg-black bg-opacity-60 z-20'>
+                <div onClick={() => disp(setcartOpen(false))} className='h-[20vh] w-full sm:h-[100vh] sm:w-[79vw]'></div>
+                <div id="cart" className='h-[80vh] sm:h-[100vh] bg-white rounded-l-2xl w-full sm:w-96 sm:mt-0 mt-[20vh]'>
                     <div className='flex flex-col justify-between h-full'>
                         <div className='flex justify-between py-3 px-4 items-center bg-slate-50'>
                             <h6 className='font-semibold text-lg'>Your Cart</h6>
@@ -69,7 +61,7 @@ const Cart = () => {
                             ))}
                         </div>
                             <div className='border-t-2'>
-                            <Total checkout={true} subtotal={total} deliver_charges={"0.00"} grand_total={total} /></div> </>}
+                            <Total checkout={true} subtotal={total.gtotal} deliver_charges={"0.00"} grand_total={total.gtotal} /></div> </>}
                     </div>
                 </div>
             </div>}

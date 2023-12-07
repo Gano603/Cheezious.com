@@ -6,24 +6,27 @@ import { CgProfile } from "react-icons/cg";
 import { IoIosArrowDown } from "react-icons/io";
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { setcartOpen } from '../../features/States/StatesSlice';
+import { setcartOpen, setgtotal, settotalitems } from '../../features/States/StatesSlice';
 import Onload_window from './Onload_window'
 
 
 
 const Navbar = ({ location }) => {
-  const [total, settotal] = useState(0);
   const [addWindow, setaddWindow] = useState(false);
   const cart = useSelector(state => state.cart)
+  const {total} = useSelector(state => state.State)
   const nav = useNavigate();
   const disp = useDispatch();
 
   useEffect(() => {
-    let tot = 0;
+    let totit = 0;
+    let tot = 0
     Object.keys(cart).map((index) => {
-      tot = tot + cart[index][0][3];
+      totit = totit + cart[index][0][3];
+      tot = tot + parseInt(cart[index][0][2]) * cart[index][0][3]
     })
-    settotal(tot)
+    disp(settotalitems(totit))
+    disp(setgtotal(tot))
   }, [cart])
 
   return (<>
@@ -36,7 +39,7 @@ const Navbar = ({ location }) => {
               className='h-20 w-20' />
             <div onClick={() => nav("/")} className='absolute inset-0 cursor-pointer'></div>
           </div>
-          <div onClick={()=> setaddWindow(true)} className='flex items-center cursor-pointer'>
+          <div onClick={() => setaddWindow(true)} className='flex items-center cursor-pointer'>
             <FaLocationDot className='text-3xl mx-1 fill-red-600' />
             <div className='flex flex-col w-max'>
               <div className='flex items-center'>
@@ -53,7 +56,7 @@ const Navbar = ({ location }) => {
           <CgProfile className='text-red-600' />
           <div className='h-12 hidden md-lg:block w-[0.09rem] bg-red-500 mx-3'></div>
           <div onClick={() => disp(setcartOpen(true))} className='flex cursor-pointer'>
-            <div className='relative hidden md-lg:block'><MdShoppingCart className='fill-red-600' /><span className='absolute text-sm leading-6 -translate-y-4 translate-x-2 bg-white rounded-full px-2 font-semibold border-black border-[1px] top-0 right-0'>{total}</span></div>
+            <div className='relative hidden md-lg:block'><MdShoppingCart className='fill-red-600' /><span className='absolute text-sm leading-6 -translate-y-4 translate-x-2 bg-white rounded-full px-2 font-semibold border-black border-[1px] top-0 right-0'>{total.items}</span></div>
             <IoIosArrowDown className='scale-50 hidden md-lg:block text-red-600' />
           </div>
         </div>

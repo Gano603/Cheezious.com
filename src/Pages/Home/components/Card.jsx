@@ -3,6 +3,7 @@ import { CiHeart } from "react-icons/ci";
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { addQuantity, addToCart, subQuantity } from '../../../features/cart/cartSlice';
+import { setnewWindow } from '../../../features/States/StatesSlice';
 
 
 const Card = ({ card_title, title, card_description, price, imgSrc, iter , cond}) => {
@@ -12,14 +13,11 @@ const Card = ({ card_title, title, card_description, price, imgSrc, iter , cond}
     const [cartProperty, setcartProperty] = useState(false);
 
     const handleCart = () => {
-
-        if (cart.hasOwnProperty(card_title)) {
-            disp(addQuantity(({ [card_title]: [imgSrc, card_description, price, cart[card_title][iter][3] + 1] })))
-        }
-        else {
+        if (!cart.hasOwnProperty(card_title) && !cond) {
             disp(addToCart(({ [card_title]: [imgSrc, card_description, price, 1] })))
             setcartProperty(true)
         }
+        else if(cond) disp(setnewWindow([true,card_title,title]))
     }
 
     const handleSub = () => {
