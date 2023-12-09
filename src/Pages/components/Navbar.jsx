@@ -12,7 +12,7 @@ import Onload_window from './Onload_window'
 
 
 const Navbar = ({ location }) => {
-  const [addWindow, setaddWindow] = useState(false);
+  const [addWindow, setaddWindow] = useState(true);
   const cart = useSelector(state => state.cart)
   const {total} = useSelector(state => state.State)
   const nav = useNavigate();
