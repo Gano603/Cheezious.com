@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { FaLocationCrosshairs } from "react-icons/fa6";
-import { ImCross } from "react-icons/im";
 import { useSelector } from "react-redux";
 
 
@@ -11,7 +10,7 @@ const Onload_window = ({ setaddWindow }) => {
 
     return (
         <>
-            <div className='absolute inset-0 bg-black bg-opacity-25 z-30 backdrop-blur-md'>
+            <div id="window" className='absolute inset-0 bg-black bg-opacity-25 z-30 backdrop-blur-md'>
                 <div className='w-full h-full flex justify-center items-center'>
                     <div className='bg-white w-[30rem] py-4 px-5 rounded-xl'>
                         <div className='flex justify-center w-full'><img className='w-28 h-28 rounded-md' src="/assets/img/1649325481.webp" alt="Cheeziious Logo" /></div>

@@ -7,6 +7,7 @@ import Footer from './Pages/components/Footer';
 import Product from './Pages/Product/Product';
 import Checkout from './Pages/Checkout/Checkout';
 import Dashboard from './Pages/Dashboard/Dashboard';
+import Cart_resp_header from './Pages/Home/components/Cart_resp_header'
 
 function App() {
   document.title = "Cheezious";
@@ -23,6 +24,7 @@ function App() {
         <Route path='*' element={<NotFound />} />
       </Routes>
       <Footer />
+      <Cart_resp_header />
     </Router>
   );
 }

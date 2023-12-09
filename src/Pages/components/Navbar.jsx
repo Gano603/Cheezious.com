@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { FaLocationDot } from "react-icons/fa6";
 import { FaSearch } from "react-icons/fa";
 import { MdShoppingCart } from "react-icons/md";
@@ -17,6 +17,7 @@ const Navbar = ({ location }) => {
   const {total} = useSelector(state => state.State)
   const nav = useNavigate();
   const disp = useDispatch();
+  const scrollPosition = useRef(0);
 
   useEffect(() => {
     let totit = 0;
@@ -28,6 +29,26 @@ const Navbar = ({ location }) => {
     disp(settotalitems(totit))
     disp(setgtotal(tot))
   }, [cart])
+
+
+  useEffect(() => {
+    const cartElement = document.getElementById("window");
+    if (addWindow) {
+        scrollPosition.current = window.scrollY;
+        document.body.style.overflow = 'hidden';
+        cartElement.style.overflowY = 'auto';
+        cartElement.style.position = 'fixed';
+        cartElement.style.top = '0';
+        cartElement.style.right = '0';
+        document.body.style.top = `-${scrollPosition.current}px`;
+    } else {
+        document.body.style.position = '';
+        document.body.style.overflow = '';
+        document.body.style.top = '';
+        window.scrollTo(0, scrollPosition.current);
+    }
+}, [addWindow]);
+
 
   return (<>
     {addWindow && <Onload_window setaddWindow={setaddWindow} />}

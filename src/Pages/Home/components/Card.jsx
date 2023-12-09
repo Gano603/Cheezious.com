@@ -6,7 +6,7 @@ import { addQuantity, addToCart, subQuantity } from '../../../features/cart/cart
 import { setnewWindow } from '../../../features/States/StatesSlice';
 
 
-const Card = ({ card_title, title, card_description, price, imgSrc, iter , cond}) => {
+const Card = ({ card_title, title, card_description, price, imgSrc , cond}) => {
     const cart = useSelector(state => state.cart)
     const disp = useDispatch();
     const nav = useNavigate();
@@ -48,7 +48,7 @@ const Card = ({ card_title, title, card_description, price, imgSrc, iter , cond}
             {cartProperty &&
                 <div className='flex items-center bg-[rgb(210,0,0)] px-1 py-1 rounded-3xl m-1'>
                     <button onClick={handleSub} className='bg-white text-[rgb(210,0,0)] rounded-full px-3 w-8 h-8 font-semibold text-2xl'>-</button>
-                    <span className='text-white py-1 px-2 mx-2 cursor-text'>{cart[card_title][0][3]}</span>
+                    <span className='text-white py-1 px-2 mx-2 cursor-text'>{cart[card_title][0][3] || "0"}</span>
                     <button onClick={() => disp(addQuantity(card_title))} className='bg-white text-[rgb(210,0,0)] rounded-full px- w-8 h-8 font-semibold text-2xl'>+</button>
                 </div>
             }
