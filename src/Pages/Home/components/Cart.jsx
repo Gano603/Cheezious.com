@@ -38,7 +38,7 @@ const Cart = () => {
         <div>
             {cartOpen && <div className='fixed flex flex-col sm:flex-row h-full w-[100vw] top-0 left-0 overflow-hidden bg-black bg-opacity-60 z-20 backdrop-blur-sm'>
                 <div onClick={() => disp(setcartOpen(false))} className='h-[20vh] w-full sm:h-[100vh] sm:w-[75vw]'></div>
-                <div id="cart" className='sm:h-[100vh] bg-white rounded-l-2xl h-[80vh] w-full sm:w-[25vw] sm:mt-0 mt-[18vh]'>
+                <div id="cart" className='sm:h-[100vh] bg-white rounded-l-2xl h-[80vh] w-full sm:w-[25vw] sm:mt-0 mt-[18vh] overflow-y-auto'>
                     <div className='flex flex-col justify-between h-full'>
                         <div className='flex justify-between py-3 px-4 items-center bg-slate-50'>
                             <h6 className='font-semibold text-lg'>Your Cart</h6>
