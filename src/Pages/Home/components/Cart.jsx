@@ -39,7 +39,10 @@ const Cart = () => {
                     <div className='flex flex-col justify-between h-full'>
                         <div className='flex justify-between py-3 px-4 items-center bg-slate-50'>
                             <h6 className='font-semibold text-lg'>Your Cart</h6>
-                            <span onClick={() => setprompt(true)} className='text-yellow-500 underline text-lg font-semibold cursor-pointer'>Clear Cart</span>
+                            <span onClick={() => {
+                                setprompt(true)
+                            disp(resetCart())
+                            }} className='text-yellow-500 underline text-lg font-semibold cursor-pointer'>Clear Cart</span>
                         </div>
                         {prompt && <div className='inset-0 bg-white absolute top-0 left-0 flex flex-col justify-center items-center'>
                             <p className='text-lg'>Do you Really want to clear the cart?</p>

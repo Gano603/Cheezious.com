@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { BrowserRouter as Router, Routes, Route, redirect } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './Pages/Home/Home';
 import NotFound from './Pages/NotFound';
 import Navbar from './Pages/components/Navbar';
@@ -8,9 +8,22 @@ import Product from './Pages/Product/Product';
 import Checkout from './Pages/Checkout/Checkout';
 import Dashboard from './Pages/Dashboard/Dashboard';
 import Cart_resp_header from './Pages/Home/components/Cart_resp_header'
+import { useDispatch, useSelector } from 'react-redux';
+import { setCart } from './features/cart/cartSlice';
 
 function App() {
   document.title = "Cheezious";
+  const cart = useSelector(state => state.cart)
+  const disp = useDispatch();
+
+  window.addEventListener('beforeunload',()=>{
+      localStorage.setItem("cart", JSON.stringify(cart));
+  })
+
+  window.addEventListener('load',()=> {
+    const cartget = (JSON.parse(localStorage.getItem("cart")));
+    if(cartget) disp(setCart(cartget));
+  })
 
   const [cartOpen,setcartOpen] = useState(false);
   return (

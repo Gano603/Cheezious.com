@@ -57,15 +57,15 @@ const First_tile = ({ title, title_head }) => {
                 <span className='text-[0.75rem] text-yellow-400'>{title}</span>
             </div>
             <div className='flex md-lg:flex-row flex-col'>
-                <img className='w-full h-[90vw] md-lg:w-96 2xl:w-[32rem] 2xl:h-[26rem] md-lg:h-96 rounded-xl' src={card_list[save][0]} />
+                <img className='w-full h-[80vw] xs:h-[90vw] md-lg:w-96 2xl:w-[32rem] 2xl:h-[26rem] md-lg:h-96 rounded-xl' src={card_list[save][0]} />
                 <div className='md-lg:mx-7 flex flex-col justify-between w-full'>
                     <div className='my-2'>
                         <div className='flex justify-between items-center'>
-                            <h6 className='text-4xl mt-2 font-extrabold'>{title}</h6>
-                            <div className='bg-gray-300 text-3xl h-max w-max rounded-3xl p-2'><CiHeart className='text-semibold text-[1.4rem]' /></div>
+                            <h6 className='text-2xl xs:text-4xl mt-2 font-extrabold'>{title}</h6>
+                            <div className='bg-gray-300 text-3xl h-max w-max rounded-3xl p-[0.45rem] xs:p-2'><CiHeart className='text-semibold text-[1.2rem]' /></div>
                         </div>
                         <div className='w-full'>
-                            <p className='my-2 text-gray-400'>{card_list[save][2]}</p>
+                            <p className='text-sm xs:text-base my-2 text-gray-400'>{card_list[save][2]}</p>
                         </div>
                     </div>
                     <div className='h-full'>
@@ -73,9 +73,9 @@ const First_tile = ({ title, title_head }) => {
                     </div>
                     <div className='flex flex-col sm:flex-row justify-between'>
                         <div className='flex justify-between sm:flex-start items-center my-4 sm:my-0'>
-                            <button onClick={() => quant == 1 ? "" : setquant(quant - 1)} className='bg-[rgb(210,0,0)] rounded-full px-3 w-16 sm:w-9 h-9 mx-2 text-lg transition-colors duration-300 text-white hover:bg-yellow-500 hover:text-black'>-</button>
+                            <button onClick={() => quant == 1 ? "" : setquant(quant - 1)} className='bg-[rgb(210,0,0)] rounded-full px-3 w-12 xs:w-16 sm:w-9 h-9 mx-2 text-base xs:text-lg transition-colors duration-300 text-white hover:bg-yellow-500 hover:text-black'>-</button>
                             <span className='border-2 rounded-3xl w-32 sm:w-16 text-center py-2 px-4 text-sm'>{quant}</span>
-                            <button onClick={() => setquant(quant + 1)} className='bg-[rgb(210,0,0)] rounded-full px-3 w-16 sm:w-9 h-9 mx-2 text-lg text-white transition-colors duration-300 hover:bg-yellow-500 hover:text-black'>+</button>
+                            <button onClick={() => setquant(quant + 1)} className='bg-[rgb(210,0,0)] rounded-full px-3 w-12 xs:w-16 sm:w-9 h-9 mx-2 text-base xs:text-lg text-white transition-colors duration-300 hover:bg-yellow-500 hover:text-black'>+</button>
                         </div>
                         <button onClick={handleCart}
                             className={`px-4 py-[0.6rem] bg-[rgb(210,0,0)] text-white transition-colors font-semibold duration-300 rounded-3xl text-[0.95rem] hover:bg-yellow-500 hover:text-black m-1 cursor-pointer`}

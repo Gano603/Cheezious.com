@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 
 const Onload_window = ({ setaddWindow }) => {
 
-    const { cities } = useSelector(state => state)
+    const cities = useSelector(state => state.cities)
     const [city, setcity] = useState(null);
 
     return (
