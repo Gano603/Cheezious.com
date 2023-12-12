@@ -2,7 +2,9 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
     "newWindow":[false],
-    "total":{items:0,gtotal:0}
+    "total":{items:0,gtotal:0},
+    "addWindow":true,
+    "checkout":false
 }
 
 const StateSlice = createSlice({
@@ -44,10 +46,16 @@ const StateSlice = createSlice({
         },
         setgtotal:(state,action) =>{
             state["total"]["gtotal"] = action.payload;
+        },
+        setaddWindow:(state,action) =>{
+            state["addWindow"] = action.payload;
+        },
+        setcheckout:(state,action) =>{
+            state["checkout"] = action.payload;
         }
     }
 })
 
-export const {setcartOpen,setemail,setname,setphone,setinstruction,settime,setaddress,setcity,setsubcity,setnewWindow,setgtotal,settotalitems} = StateSlice.actions;
+export const {setcartOpen,setemail,setname,setphone,setinstruction,settime,setaddress,setcity,setsubcity,setnewWindow,setgtotal,settotalitems,setaddWindow,setcheckout} = StateSlice.actions;
 
 export default StateSlice.reducer

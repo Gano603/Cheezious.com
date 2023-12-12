@@ -6,15 +6,14 @@ import { CgProfile } from "react-icons/cg";
 import { IoIosArrowDown } from "react-icons/io";
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { setcartOpen, setgtotal, settotalitems } from '../../features/States/StatesSlice';
+import { setaddWindow, setcartOpen, setgtotal, settotalitems } from '../../features/States/StatesSlice';
 import Onload_window from './Onload_window'
 
 
 
-const Navbar = ({ location }) => {
-  const [addWindow, setaddWindow] = useState(true);
+const Navbar = () => {
   const cart = useSelector(state => state.cart)
-  const {total} = useSelector(state => state.State)
+  const {total,city,subcity,addWindow} = useSelector(state => state.State) || null;
   const nav = useNavigate();
   const disp = useDispatch();
   const scrollPosition = useRef(0);
@@ -51,7 +50,7 @@ const Navbar = ({ location }) => {
 
 
   return (<>
-    {addWindow && <Onload_window setaddWindow={setaddWindow} />}
+    {addWindow && <Onload_window />}
     <div className='h-20 bg-yellow-400 flex items-center shadow-md w-[100vw] fixed left-0 top-0 z-20'>
       <div className='mx-4 md-lg:mx-14 xl:mx-28 flex w-full'>
         <div className='w-full flex md-lg:flex-row-reverse'>
@@ -60,14 +59,14 @@ const Navbar = ({ location }) => {
               className='h-20 w-20' />
             <div onClick={() => nav("/")} className='absolute inset-0 cursor-pointer'></div>
           </div>
-          <div onClick={() => setaddWindow(true)} className='flex items-center cursor-pointer'>
+          <div onClick={() => disp(setaddWindow(true))} className='flex items-center cursor-pointer'>
             <FaLocationDot className='text-3xl mx-1 fill-red-600' />
             <div className='flex flex-col w-max'>
               <div className='flex items-center'>
                 <span className='md-lg:text-sm text-xs font-normal md-lg:font-medium'>Deliver to</span>
                 <IoIosArrowDown className='scale-25 block md-lg:hidden mx-1' />
               </div>
-              <span className='text-[0.7rem]'>{location}</span>
+              <span className='text-[0.7rem]'>{`${subcity},${city}`}</span>
             </div>
           </div>
         </div>

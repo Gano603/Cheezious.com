@@ -29,10 +29,14 @@ const First_tile = ({ title, title_head }) => {
     useEffect(() => {
         settotal(0)
         let tt = 0;
+
+        if(card_list[save][4] === undefined) settotal(card_list[save][3])
+        else{
         Object.keys(variate).map((ind) => {
             typeof (variate[ind]) !== 'string' ? variate[ind].map((keys) => tt += parseInt(card_list[save][4][ind][keys])) : tt = +parseInt(card_list[save][4][ind][variate[ind]])
         })
         settotal(tt)
+    }
     }, [variate])
 
     const handleCart = () => {

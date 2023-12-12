@@ -1,12 +1,19 @@
-import { useState } from "react";
 import { FaLocationCrosshairs } from "react-icons/fa6";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { setaddWindow, setcity, setsubcity } from "../../features/States/StatesSlice";
 
 
-const Onload_window = ({ setaddWindow }) => {
+const Onload_window = () => {
 
     const cities = useSelector(state => state.cities)
-    const [city, setcity] = useState(null);
+    const disp = useDispatch();
+    const { city , subcity} = useSelector(state => state.State) || null;
+    const handler = () => {
+        disp(setaddWindow(false))
+        const expirationTime = new Date(new Date().getTime() + 24 * 60 * 60 * 1000);
+        document.cookie = `Location=${JSON.stringify({city,subcity})}; expires=${expirationTime.toUTCString()}; path=/`;
+
+    }
 
     return (
         <>
@@ -22,20 +29,24 @@ const Onload_window = ({ setaddWindow }) => {
                             <h3 className='my-2 font-semibold'>Select your location</h3>
                             <span className='py-2 px-4 text-xs bg-gray-200 hover:bg-red-600 hover:text-white cursor-pointer rounded-full flex items-center'><FaLocationCrosshairs className='mr-1 text-lg' />Use current location</span>
                         </div>
-                        <select onChange={(e) => setcity(e.target.value)} type="text" placeholder='Select your City' className='border-[1px] border-slate-400 h-10 rounded-3xl w-full outline-none mt-3 px-4' >
+                        <select onChange={(e) => disp(setcity(e.target.value))} type="text" className='border-[1px] border-slate-400 h-10 rounded-3xl w-full outline-none mt-3 px-4' >
+                            {/* eslint-disable-next-line jsx-a11y/option-has-value */}
+                            <option value="" selected={true} disabled>Select your City</option>
                             {Object.keys(cities).map((ind, iter) => (
-                                <option key={iter} value={ind}>{ind}</option>
+                                <option className="hover:bg-blue-800 target:bg-blue-800 hover:text-black" key={iter} value={ind}>{ind}</option>
                             ))}
                         </select>
-                        <select type="text" placeholder='Select your City' className='border-[1px] border-slate-400 h-10 rounded-3xl w-full outline-none mt-3 px-4' >
-                            {city !== null && cities[city].map((ind, iter) => (
-                                <option key={iter} value={ind}>{ind}</option>
+                        <select onChange={(e) => disp(setsubcity(e.target.value))} type="text" className='border-[1px] border-slate-400 h-10 rounded-3xl w-full outline-none mt-3 px-4' >
+                            {/* eslint-disable-next-line jsx-a11y/option-has-value */}
+                            <option value="" selected={true} disabled>Select your Area/Region</option>
+                            {city !== undefined && cities[city].map((ind, iter) => (
+                                <option className="hover:bg-blue-800 target:bg-blue-800 hover:text-black" key={iter} value={ind}>{ind}</option>
                             ))}
                             {city === null && (
                                 <option value={"Select"} disabled>No Options</option>
                             )}
                         </select>
-                        <button onClick={() => setaddWindow(false)} className='w-full py-[0.7rem] bg-[rgb(210,0,0)] rounded-3xl text-white font-semibold my-2 hover:text-black hover:bg-yellow-400 transition-colors duration-200'>Select</button>
+                        <button onClick={handler} className='w-full py-[0.7rem] bg-[rgb(210,0,0)] rounded-3xl text-white font-semibold my-2 hover:text-black hover:bg-yellow-400 transition-colors duration-200'>Select</button>
                     </div>
 
                 </div>

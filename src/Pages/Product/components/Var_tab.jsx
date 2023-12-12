@@ -40,6 +40,12 @@ const Var_tab = ({ data, variate, setvariate, req, setreq, initial }) => {
                 }
             })
         }
+        else{
+            let r = req;
+            r[1] = false;
+            r[0] = false;
+            setreq(r)
+        }
     }
     )
 

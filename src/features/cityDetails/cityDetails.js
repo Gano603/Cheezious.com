@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit"
 
 
 const initialState = {
-    "Islamabad":["26 Number Bus Stop -RWP","Abasyn University Islamabad","Airport Housing Society","Ali Pur","Azeem Town","Bhara Kahu","Bhata Chowk -RWP","Similar Places..."],
+    "Islamabad":["26 Number Bus Stop -RWP","Abasyn University Islamabad","Airport Housing Society","Ali Pur","Azeem Town","Bhara Kahu","Bhata Chowk -RWP","E-11/1","E-11/2","E-11/3","E-11/4","Similar Places..."],
     "Lahore":["Aliya Town","Rashid Pura","Ichhra","Beghum Pura","Baghban Pura"],
     "Mian Channun":["Mian Channu Area"],
     "Okara":["Okara"],

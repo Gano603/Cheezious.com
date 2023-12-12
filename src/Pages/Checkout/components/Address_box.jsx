@@ -1,5 +1,5 @@
 import { ImCross } from "react-icons/im";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { setaddress } from "../../../features/States/StatesSlice";
 
 
@@ -7,6 +7,8 @@ import { setaddress } from "../../../features/States/StatesSlice";
 const Address_box = ({setaddWindow}) => {
 
     const disp = useDispatch();
+    const {city,subcity} = useSelector(state => state.State) || null;
+
 
     return (
         <>
@@ -23,7 +25,7 @@ const Address_box = ({setaddWindow}) => {
                         </div>
                         <div className='mx-2 h-max'>
                             <h3 className='my-2'>Area/City</h3>
-                            <input type="text" placeholder='Enter your Area/City' className='border-[1px] border-slate-400 h-10 rounded-3xl w-full outline-none px-4' />
+                            <input disabled value={`${subcity},${city}`} type="text" placeholder='Enter your Area/City' className='border-[1px] border-slate-400 h-10 text-gray-500 bg-gray-200 rounded-3xl w-full outline-none px-4' />
                         </div>
                         <span className='text-sm text-gray-500'>To change your area/region, please do it from top header location button</span>
                         <button onClick={() => setaddWindow(false)} className='w-full py-[0.7rem] bg-[rgb(210,0,0)] rounded-3xl text-white font-semibold my-2 hover:text-black hover:bg-yellow-400 transition-colors duration-200'>Save Address</button>

@@ -1,7 +1,7 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom'
-import { setcartOpen } from '../../../features/States/StatesSlice';
+import { setcartOpen, setcheckout } from '../../../features/States/StatesSlice';
 import axios from 'axios';
 import { resetCart } from '../../../features/cart/cartSlice';
 
@@ -9,17 +9,20 @@ const Total = ({ subtotal, deliver_charges, grand_total, checkout }) => {
     const nav = useNavigate();
     const disp = useDispatch();
     const cart = useSelector(state => state.cart)
-    const {name,email,phone,instruction,time,address} = useSelector(state => state.State)
-    
+    const { name, email, phone, instruction, time, address } = useSelector(state => state.State)
+
     const buttonHandler = () => {
-        if(checkout){
+        if (checkout) {
             disp(setcartOpen(false))
             nav('/checkout')
         }
-        else{
-            axios.post(import.meta.env.VITE_API_URL+"/new",
-            {cart, name,email,phone,instruction,time,address}
-            ).then(()=> disp(resetCart())).then(()=> nav('/'))
+        else {
+            if (name && email && phone && address) {
+                axios.post(import.meta.env.VITE_API_URL + "/new",
+                    { cart, name, email, phone, instruction, time, address }
+                ).then(() => disp(resetCart())).then(() => nav('/'))
+            }
+            else disp(setcheckout(true))
         }
     }
 
