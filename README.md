@@ -51,21 +51,21 @@ Here's a screenshot of the Cheezious website:
 
 ## Home
 
-![Fast Food Website Preview](public/assets/img/cheezious-com.vercel.app_(HD).png)
-![Fast Food Website Preview](public/assets/img/cheezious-com.vercel.app_(HD)(1).png)
+![Fast Food Website Preview](public/assets/img/1.png)
+![Fast Food Website Preview](public/assets/img/2.png)
 
 ## Product
 
-![Fast Food Website Preview](public/assets/img/cheezious-com.vercel.app_product_Crown%20Crust_Special%20Pizza(HD).png)
+![Fast Food Website Preview](public/assets/img/3.png)
 
 ## Checkout
 
-![Fast Food Website Preview](public/assets/img/cheezious-com.vercel.app_product_Crown%20Crust_Special%20Pizza(HD)(2).png)
+![Fast Food Website Preview](public/assets/img/4.png)
 
 
 ## Cart
 
-![Fast Food Website Preview](public/assets/img/cheezious-com.vercel.app_product_Crown%20Crust_Special%20Pizza(HD)(1).png)
+![Fast Food Website Preview](public/assets/img/5.png)
 
 
 
