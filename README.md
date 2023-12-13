@@ -47,10 +47,26 @@ The website includes several routes for different functionalities:
 
 
 ## Showcase
-
 Here's a screenshot of the Cheezious website:
+
+## Home
 
 ![Fast Food Website Preview](public/assets/img/cheezious-com.vercel.app_(HD).png)
 ![Fast Food Website Preview](public/assets/img/cheezious-com.vercel.app_(HD)(1).png)
+
+## Product
+
+![Fast Food Website Preview](public/assets/img/cheezious-com.vercel.app_product_Crown%20Crust_Special%20Pizza(HD).png)
+
+## Checkout
+
+![Fast Food Website Preview](public/assets/img/cheezious-com.vercel.app_product_Crown%20Crust_Special%20Pizza(HD)(2).png)
+
+
+## Cart
+
+![Fast Food Website Preview](public/assets/img/cheezious-com.vercel.app_product_Crown%20Crust_Special%20Pizza(HD)(1).png)
+
+
 
 Feel free to fork and expand upon this front-end project to further enhance your skills. Happy coding!
