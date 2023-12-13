@@ -19,20 +19,20 @@ const LeftPanel = ({setaddWindow}) => {
                 </div>
                 <div className='w-[45%] xl:w-[31%] mx-2 h-max'>
                     <h3 className='my-2'>Mobile Number <span className='text-[rgb(210,0,0)]'>*</span></h3>
-                    <span className={`text-xs text-[rgb(210,0,0)] ${checkout && !name? "":"hidden"}`}>This field is required</span>
-                    <input type="tel" pattern='/^0\d{3}-\d{7}$/' placeholder='0333-1234567' required onChange={(e)=> disp(setphone(e.target.value))} className={`border-[1px] border-slate-400 h-10 rounded-3xl w-full outline-none px-4 ${!phone && checkout? "border-[rgb(210,0,0)]":"border-slate-400"}`} />
+                    <span className={`text-xs text-[rgb(210,0,0)] ${checkout && !phone? "":"hidden"}`}>This field is required</span>
+                    <input type="tel" pattern='/^0\d{3}-\d{7}$/' placeholder='0333-1234567' required onChange={(e)=> disp(setphone(e.target.value))} className={`border-[1px] h-10 rounded-3xl w-full outline-none px-4 ${checkout && !phone? "border-[rgb(210,0,0)]":"border-slate-400"} `} />
                 </div>
                 <div className='w-[45%] xl:w-[31%] mx-2 h-max'>
                     <h3 className='my-2'>Email Address <span className='text-[rgb(210,0,0)]'>*</span></h3>
-                    <span className={`text-xs text-[rgb(210,0,0)] ${checkout && !name? "":"hidden"}`}>This field is required</span>
-                    <input type="email" required onChange={(e)=> disp(setemail(e.target.value))}  placeholder='Enter your email address' className={`border-[1px] border-slate-400 h-10 rounded-3xl w-full outline-none px-4 ${!email && checkout? "border-[rgb(210,0,0)]":"border-slate-400"}`} />
+                    <span className={`text-xs text-[rgb(210,0,0)] ${checkout && !email? "":"hidden"}`}>This field is required</span>
+                    <input type="email" required onChange={(e)=> disp(setemail(e.target.value))}  placeholder='Enter your email address' className={`border-[1px] h-10 rounded-3xl w-full outline-none px-4 ${checkout && !email? "border-[rgb(210,0,0)]":"border-slate-400"} `} />
                 </div>
             </div>
             <div>
                 <div className='w-full mx-2 my-6'>
                     <h3 className='my-2'>Your Address <span className='text-[rgb(210,0,0)]'>*</span></h3>
                     <p className='text-slate-500'>{address? `${address},${subcity},${city}`:''}</p>
-                    <p className={`text-xs text-[rgb(210,0,0)] ${checkout && !name? "":"hidden"}`}>This field is required</p>
+                    <p className={`text-xs text-[rgb(210,0,0)] ${checkout && !address? "":"hidden"}`}>This field is required</p>
                     <button className={`px-4 py-2 bg-[rgb(210,0,0)] text-white transition-colors font-semibold duration-300 rounded-3xl text-[0.95rem] hover:bg-yellow-500 hover:text-black m-1 cursor-pointer`} onClick={()=> setaddWindow(true)} title='Add to Cart'>Add/ Change Address</button>
                 </div>
             </div>

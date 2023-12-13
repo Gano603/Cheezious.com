@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './Pages/Home/Home';
 import NotFound from './Pages/NotFound';
@@ -11,6 +10,7 @@ import Cart_resp_header from './Pages/Home/components/Cart_resp_header'
 import { useDispatch, useSelector } from 'react-redux';
 import { setCart } from './features/cart/cartSlice';
 import { setaddWindow, setcity, setsubcity } from './features/States/StatesSlice';
+import Cart from './Pages/Home/components/Cart';
 
 function App() {
   document.title = "Cheezious";
@@ -40,12 +40,12 @@ function App() {
     if(cartget) disp(setCart(cartget));
   })
 
-  const [cartOpen,setcartOpen] = useState(false);
   return (
     <Router>
-      <Navbar cartOpen={cartOpen} setcartOpen={setcartOpen} location={"E-11/1,Islamabad"} />
+      <Navbar />
+      <Cart />
       <Routes>
-        <Route path='/' element={<Home cartOpen={cartOpen} setcartOpen={setcartOpen}/>} />
+        <Route path='/' element={<Home />} />
         <Route path='/product/:title/:title_head' element={<Product />} />
         <Route path='/checkout' element={<Checkout />} />
         <Route path='/dashboard' element={<Dashboard />} />

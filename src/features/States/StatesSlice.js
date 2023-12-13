@@ -52,10 +52,16 @@ const StateSlice = createSlice({
         },
         setcheckout:(state,action) =>{
             state["checkout"] = action.payload;
+        },
+        resetStates:(state) =>{
+            state["cartOpen"] = false;
+            state["name"] = "";
+            state["email"] = "";
+            state["phone"] = "";
         }
     }
 })
 
-export const {setcartOpen,setemail,setname,setphone,setinstruction,settime,setaddress,setcity,setsubcity,setnewWindow,setgtotal,settotalitems,setaddWindow,setcheckout} = StateSlice.actions;
+export const {setcartOpen,setemail,setname,setphone,setinstruction,settime,setaddress,setcity,setsubcity,setnewWindow,setgtotal,settotalitems,setaddWindow,setcheckout,resetStates} = StateSlice.actions;
 
 export default StateSlice.reducer
